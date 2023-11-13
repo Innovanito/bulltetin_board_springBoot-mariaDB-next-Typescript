@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>게시물 작성폼</title>
+</head>
+
+<style>
+    .layout {
+        Width: 500px;
+        margin: 0 auto;
+        margin-top: 40px
+    }
+
+    .layout  input, textarea {
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 10px
+    }
+
+    .layout  textarea {
+        width: 100%;
+        margin-top: 10px;
+        min-height: 300px;
+    }
+</style>
+
+<body>
+<div class="layout">
+    <form th:action="@{/board/update/{id}(id=${board.id})}" method="post">
+        <p>
+            <h3>제목</h3>
+            <input name="title" type="text" th:value="${board.title}">
+        </p>
+        <p>
+            <h3>내용</h3>
+            <textarea name="content" th:text="${board.content}"></textarea>
+        </p>
+        <input type="file" name="file">
+        <button type="submit">수정</button>
+    </form>
+</div>
+</body>
+</html>
